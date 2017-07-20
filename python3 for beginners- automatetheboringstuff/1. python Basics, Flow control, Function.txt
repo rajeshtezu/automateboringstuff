@@ -1,0 +1,107 @@
+Python 3.x 
+--------------
+
+-> The * operator can be used with only two numeric values (for multiplication) or one          string value and one integer value (for string replication).
+
+-> The input() function always returns a string (even if the user typed in a number).
+
+-> An integer can be equal to a floating point.
+   Eg:
+	>>> 42 == '42'
+	False
+	>>> 42 == 42.0
+	True
+	>>> 42.0 == 0042.000
+	True
+
+-> The == and != operators can actually work with values of any data type.
+
+-> The <, >, <=, and >= operators, on the other hand, work properly only with integer and       floating-point values.
+
+-> When used in conditions, 0, 0.0, and '' (the empty string) are considered False, while    all other values are considered True.
+
+
+-> "random" module:
+ random.randint(fromVal, toVal) ---> will give random integer value between fromVal & toVal
+				     (including fromVal and toVal)
+
+-> can cause the program to terminate, or exit, by calling the sys.exit() function.
+Eg:
+   import sys
+   sys.exit()
+
+-> In Python there is a value called None, which represents the absence of a value. None is    the only value of the NoneType data type.
+
+-> print() function returns None.
+
+Note: Behind the scenes, Python adds return None to the end of any function definition with no return statement. This is similar to how a while or for loop implicitly ends with a continue statement. Also, if you use a return statement without a value (that is, just the return keyword by itself), then None is returned.
+
+
+Keyword Arguments and print() :
+------------------------------
+-> keyword arguments are identified by the keyword put before them in the function call.    Keyword arguments are often used for optional parameters.
+
+
+-> print() function has the optional parameters end and sep to specify what should be printed at the end of its arguments and between its arguments (separating them), respectively.
+
+Eg: 
+	print('hello', end='')
+	print('world')
+
+
+-> when you pass multiple string values to print(), the function will automatically separate them with a single space.
+
+Eg-1: 
+	>>> print('cats', 'dogs', 'mice')
+	cats dogs mice
+
+Eg-2:
+	>>> print('cats', 'dogs', 'mice', sep=',')
+	cats,dogs,mice
+------------------------------------------------------------------------------------------
+
+-> If you need to modify a global variable from within a function, use the "global" statement.
+
+Eg:
+	eggs = 30
+
+	def spam():
+  	  global eggs
+ 	  print(eggs)
+  	  eggs = 40
+    
+	spam()
+	print(eggs)
+
+------------------------------------------------------------------------------------------
+
+## Exception Handling:
+----------------------
+Eg:
+
+def spam(divideBy):
+    try:
+        return 42 / divideBy
+    except ZeroDivisionError:
+        print('Error: Invalid argument.')
+
+print(spam(2))
+print(spam(12))
+print(spam(0))
+print(spam(1))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
