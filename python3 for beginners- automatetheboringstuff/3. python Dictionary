@@ -1,0 +1,176 @@
+# Dictionary:
+-------------
+
+Eg:
+>>> myCat = {'size': 'fat', 'color': 'gray', 'disposition': 'loud'}
+>>> myCat['size']
+'fat'
+>>> 'My cat has ' + myCat['color'] + ' fur.'
+'My cat has gray fur.'
+
+-> can use integer as well, as key value
+>>> spam = {12345: 'Luggage Combination', 42: 'The Answer'}
+
+-> Unlike lists, items in dictionaries are unordered. 
+Eg:
+>>> spam = ['cats', 'dogs', 'moose']
+>>> bacon = ['dogs', 'moose', 'cats']
+>>> spam == bacon
+False
+>>> eggs = {'name': 'Zophie', 'species': 'cat', 'age': '8'}
+>>> ham = {'species': 'cat', 'age': '8', 'name': 'Zophie'}
+>>> eggs == ham
+True
+
+# The keys(), values(), and items() Methods:
+--------------------------------------------
+
+-> The values returned by these methods are not true lists: They cannot be modified and do not have an append() method. But these data types (dict_keys, dict_values, and dict_items, respectively) can be used in for loops.
+
+Eg-1:
+>>> spam = {'color': 'red', 'age': 42}
+>>> for v in spam.values():
+        print(v)
+
+red
+42
+
+Eg-2:
+>>> for k in spam.keys():
+        print(k)
+
+color
+age
+
+Eg-3:
+>>> for i in spam.items():
+        print(i)
+
+('color', 'red')
+('age', 42)
+
+Note: If you want a true list from one of these methods, pass its list-like return value to the list() function.
+
+-> You can also use the multiple assignment trick in a for loop to assign the key and value to separate variables.
+Eg:
+>>> spam = {'color': 'red', 'age': 42}
+>>> for k, v in spam.items():
+        print('Key: ' + k + ' Value: ' + str(v))
+
+Key: age Value: 42
+Key: color Value: red
+
+# Checking Whether a Key or Value Exists in a Dictionary:
+---------------------------------------------------------
+Eg:
+>>> spam = {'name': 'Zophie', 'age': 7}
+>>> 'name' in spam.keys()
+True
+>>> 'Zophie' in spam.values()
+True
+>>> 'color' in spam.keys()
+False
+>>> 'color' not in spam.keys()
+True
+>>> 'color' in spam
+False
+
+Note: 'color' in spam is essentially a shorter version of writing 'color' in spam.keys().
+
+# The get() Method:
+-------------------
+->Takes two arguments: the key of the value to retrieve and a fallback value to return if that key does not exist.
+
+Eg:
+>>> picnicItems = {'apples': 5, 'cups': 2}
+>>> 'I am bringing ' + str(picnicItems.get('cups', 0)) + ' cups.'
+'I am bringing 2 cups.'
+>>> 'I am bringing ' + str(picnicItems.get('eggs', 0)) + ' eggs.'
+'I am bringing 0 eggs.'
+
+# The setdefault() Method: ***important***
+--------------------------
+-> Sets the key-value pair in a dictionary if the key doesn't exist already.
+
+Eg:
+>>> spam = {'name': 'Pooka', 'age': 5}
+>>> spam.setdefault('color', 'black')
+'black'
+>>> spam
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+>>> spam.setdefault('color', 'white')
+'black'
+>>> spam
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+
+
+--> program that counts the number of occurrences of each letter in a string. 
+
+message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+
+print(count)
+
+# Pretty Printing:
+------------------
+If you import the pprint module into your programs, you’ll have access to the pprint() and pformat() functions that will “pretty print” a dictionary’s values.
+
+Eg:
+import pprint
+message = 'It was a bright cold day in April, and the clocks were striking thirteen.'
+count = {}
+
+for character in message:
+    count.setdefault(character, 0)
+    count[character] = count[character] + 1
+
+pprint.pprint(count)
+
+|-> SThis time, when the program is run, the output looks much cleaner, with the keys sorted.
+
+{' ': 13,
+ ',': 1,
+ '.': 1,
+ 'A': 1,
+ 'I': 1,
+ 'a': 4,
+ 'b': 1,
+ 'c': 3,
+ 'd': 3,
+ 'e': 5,
+ 'g': 2,
+ 'h': 3,
+ 'i': 6,
+ 'k': 2,
+ 'l': 3,
+ 'n': 4,
+ 'o': 2,
+ 'p': 1,
+ 'r': 5,
+ 's': 3,
+ 't': 6,
+ 'w': 2,
+ 'y': 1}
+
+pprint.pprint() -> helpful when dictionary itself contains nested lists or dictionaries.
+
+-> If you want to obtain the prettified text as a string value instead of displaying it on the screen, call pprint.pformat() instead. These two lines are equivalent to each other:
+
+pprint.pprint(someDictionaryValue)
+print(pprint.pformat(someDictionaryValue))
+
+
+# Using Data Structures to Model Real-World Things:
+---------------------------------------------------
+
+
+
+
+
+
+
+
