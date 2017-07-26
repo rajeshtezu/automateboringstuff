@@ -173,7 +173,33 @@ Eg:
 >>> spam.rstrip()
 '    Hello World'
 
+-> Optionally, a string argument will specify which characters on the ends should be stripped. 
 
+Eg:
+>>> spam = 'SpamSpamBaconSpamEggsSpamSpam'
+>>> spam.strip('ampS')
+'BaconSpamEggs'
+
+Note: Passing strip() the argument 'ampS' will tell it to strip occurences of a, m, p, and capital S from the ends of the string stored in spam. The order of the characters in the string passed to strip() does not matter: strip('ampS') will do the same thing as strip('mapS') or strip('Spam').
+
+# Copying and Pasting Strings with the pyperclip Module:
+--------------------------------------------------------
+
+-> The pyperclip module has copy() and paste() functions that can send text to and receive text from your computer’s clipboard. Sending the output of your program to the clipboard will make it easy to paste it to an email, word processor, or some other software.
+
+Install pyperclip using pip
+
+Eg:
+>>> import pyperclip
+>>> pyperclip.copy('Hello world!')
+>>> pyperclip.paste()
+'Hello world!'
+
+Note: if something outside of your program changes the clipboard contents, the paste() function will return it. For example, if I copied this sentence to the clipboard and then called paste(), it would look like this:
+
+>>> pyperclip.paste()
+'For example, if I copied this sentence to the clipboard and then called
+paste(), it would look like this:'
 
 
 
