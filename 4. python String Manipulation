@@ -162,7 +162,16 @@ cookies.............  8000
 # Removing Whitespace with strip(), rstrip(), and lstrip():
 -----------------------------------------------------------
 
--> 
+-> The strip() string method will return a new string without any whitespace characters at the beginning or end. The lstrip() and rstrip() methods will remove whitespace characters from the left and right ends, respectively.
+
+Eg:
+>>> spam = '    Hello World     '
+>>> spam.strip()
+'Hello World'
+>>> spam.lstrip()
+'Hello World     '
+>>> spam.rstrip()
+'    Hello World'
 
 
 
