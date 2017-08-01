@@ -1,6 +1,8 @@
 #! python3
 # phoneAndEmail.py - Finds phone numbers and email addresses on the clipboard.
 
+# How to run this program: select all the text on the page, and press CTRL-C to copy it to the clipboard, then run this program.
+
 import pyperclip
 import re
 
@@ -36,8 +38,7 @@ for groups in phoneRegex.findall(text):
 for groups in emailRegex.findall(text):
 	matches.append(groups[0])
 
-
-
+    
 # Copy results to the clipboard.
 if len(matches) > 0:
     pyperclip.copy('\n'.join(matches))
