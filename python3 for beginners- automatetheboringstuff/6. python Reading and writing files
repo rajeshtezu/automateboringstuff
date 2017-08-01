@@ -1,0 +1,129 @@
+## Reading and Writing Files:
+-----------------------------
+
+Note: folder names and filenames are not case sensitive on Windows and OS X, they are case sensitive on Linux.
+
+# Backslash on Windows and Forward Slash on OS X and Linux path:
+----------------------------------------------------------------
+1. path seperator in windows: \
+2. path seperator in X, Linux: /
+
+-> To handle both of the above cases we have os.path.join() function.
+-> If you pass it the string values of individual file and folder names in your path, os.path.join() will return a string with a file path using the correct path separators.
+
+Eg: O/P for windows
+>>> import os
+>>> os.path.join('usr', 'bin', 'spam')
+'usr\\bin\\spam'
+
+Note: (Notice that the backslashes are doubled because each backslash needs to be escaped by another backslash character.) If I had called this function on OS X or Linux, the string would have been 'usr/bin/spam'.
+
+    
+# The Current Working Directory:
+--------------------------------
+-> You can get the current working directory as a string value with the os.getcwd() function and change it with os.chdir().
+
+Eg:
+>>> import os
+>>> os.getcwd()
+'C:\\Python34'
+>>> os.chdir('C:\\Windows\\System32')
+>>> os.getcwd()
+'C:\\Windows\\System32'
+
+-> Python will display an error(FileNotFoundError) if you try to change to a directory that does not exist.
+
+
+# Absolute vs. Relative Paths:
+------------------------------
+1. Absolute path:  which always begins with the root folder
+2. Relative path: which is relative to the program’s current working directory
+
+-> A single period (“dot”) for a folder name is shorthand for “this directory.” Two periods (“dot-dot”) means “the parent folder.”
+
+Note: The .\ at the start of a relative path is optional. For example, .\spam.txt and spam.txt refer to the same file.
+
+
+# Creating New Folders with os.makedirs():
+------------------------------------------
+Eg:
+>>> import os
+>>> os.makedirs('C:\\delicious\\walnut\\waffles')
+
+
+# The os.path Module:
+---------------------
+Eg:  os.path.join(), etc.
+-> The full documentation for the os.path module is on the Python website at http://docs.python.org/3/library/os.path.html.
+
+  # Handling Absolute and Relative Paths:
+  ---------------------------------------
+  -> os.path.abspath(relativePath): will return a string of the absolute path of the argument.
+  
+  -> os.path.isabs(path): will return True if the argument is an absolute path and False if it is a relative path.
+  
+  -> os.path.relpath(path, start): will return a string of a relative path from the start path to path. If start        is not provided, the current working directory is used as the start path.
+
+    Eg-1:
+    >>> os.path.abspath('.')
+    'C:\\Python34'
+    >>> os.path.abspath('.\\Scripts')
+    'C:\\Python34\\Scripts'
+    >>> os.path.isabs('.')
+    False
+    >>> os.path.isabs(os.path.abspath('.'))
+    True 
+
+    Eg-2:
+    >>> os.path.relpath('C:\\Windows', 'C:\\')
+    'Windows'
+    >>> os.path.relpath('C:\\Windows', 'C:\\spam\\eggs')
+    '..\\..\\Windows'
+    >>> os.getcwd() 
+    'C:\\Python34'
+
+  -> os.path.dirname(path): will return a string of everything that comes before the last slash in the path            argument.
+  
+  ->  os.path.basename(path): will return a string of everything that comes after the last slash in the path             argument.
+  
+    Eg: 
+    >>> path = 'C:\\Windows\\System32\\calc.exe'
+    >>> os.path.basename(path)
+    'calc.exe'
+    >>> os.path.dirname(path)
+    'C:\\Windows\\System32'
+  
+  -> os.path.split(calcFilePath): returns tuple value with path’s dir name and base name together.
+    
+    Eg:
+    >>> calcFilePath = 'C:\\Windows\\System32\\calc.exe'
+    >>> os.path.split(calcFilePath)
+    ('C:\\Windows\\System32', 'calc.exe')
+
+  -> Take a file path and return a list of strings of each folder:
+    Eg:
+    >>> calcFilePath.split(os.path.sep)
+    ['C:', 'Windows', 'System32', 'calc.exe']
+
+  -> On OS X and Linux systems, there will be a blank string at the start of the returned list:
+    Eg:
+    >>> '/usr/bin'.split(os.path.sep)
+    ['', 'usr', 'bin']
+
+
+  # Finding File Sizes and Folder Contents:
+  -----------------------------------------
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
