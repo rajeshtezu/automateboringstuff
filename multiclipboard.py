@@ -1,5 +1,6 @@
 #! python3
 # mcb.pyw - Saves and loads pieces of text to the clipboard.
+# first copy somethnig to your clipboard
 # Usage: py.exe/python multiclipboard.py save <keyword> - Saves clipboard to keyword.
 #        py.exe/python multiclipboard.py <keyword> - Loads keyword to clipboard.
 #        py.exe/python multiclipboard.py delete <keyword> - delete keyword from shelfFile
