@@ -1,0 +1,79 @@
+# Organizing Files:
+-------------------
+
+# The shutil Module:
+--------------------
+-> The shutil (or shell utilities) module has functions to let you copy, move, rename, and delete files in your 
+   Python programs.
+   
+ # Copying Files and Folders:
+ ----------------------------
+ -> The shutil module provides functions for copying files, as well as entire folders.
+ 
+ 1. shutil.copy(source, destination) : will copy the file at the path source to the folder at the path 
+    destination.
+    
+    Note: 
+    1. Both source and destination are strings
+    2. If destination is a filename, it will be used as the new name of the copied file.
+    3. This function returns a string of the path of the newly copied file.
+    
+    Eg:
+     >>> import shutil, os
+     >>> os.chdir('C:\\')
+     >>> shutil.copy('C:\\spam.txt', 'C:\\delicious')
+     'C:\\delicious\\spam.txt'
+     >>> shutil.copy('eggs.txt', 'C:\\delicious\\eggs2.txt')
+     'C:\\delicious\\eggs2.txt'
+
+ 2. shutil.copytree(source, destination) : will copy an entire folder and every folder and file contained in it.
+     
+    Note: The function returns a string of the path of the copied folder.
+    
+    Eg:
+    >>> import shutil, os
+    >>> os.chdir('C:\\')
+    >>> shutil.copytree('C:\\bacon', 'C:\\bacon_backup')
+    'C:\\bacon_backup'
+ 
+    
+ # Moving and Renaming Files and Folders:
+ ----------------------------------------
+ -> shutil.move(source, destination) : moves the file or folder at the path source to the path destination, 
+    returns a string of the absolute path of the new location.
+    
+    Eg-1:
+    >>> import shutil
+    >>> shutil.move('C:\\bacon.txt', 'C:\\eggs')
+    'C:\\eggs\\bacon.txt'
+    
+    Eg-2: Here destination file will be overwritten with the content of source file.
+    >>> shutil.move('C:\\bacon.txt', 'C:\\eggs\\new_bacon.txt')
+    'C:\\eggs\\new_bacon.txt'
+    
+    Eg-3: Here 'eggs' will be assumed as filename, not folder name if folder 'eggs' doesn't exist.
+    >>> shutil.move('C:\\bacon.txt', 'C:\\eggs')
+    'C:\\eggs'
+    
+    Note: if the destination folder doesn't exist, python will throw 'FileNotFoundError' exception.
+    
+
+ # Permanently Deleting Files and Folders:
+ -----------------------------------------
+ -> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
