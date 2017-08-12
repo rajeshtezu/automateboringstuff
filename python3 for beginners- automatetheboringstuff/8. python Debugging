@@ -1,0 +1,159 @@
+# Debugging:
+------------
+
+# Raising Exceptions:
+---------------------
+-> Raising an exception is a way of saying, “Stop running the code in this function and move the program execution to the 
+   except statement.”
+
+   Eg:
+   >>> raise Exception('This is the error message.')
+   Traceback (most recent call last):
+     File "<pyshell#191>", line 1, in <module>
+       raise Exception('This is the error message.')
+   Exception: This is the error message.
+
+-> We commonly see a raise statement inside a function and the try and except statements in the code calling the function.
+
+   Eg: 
+   def boxPrint(symbol, width, height):
+       if len(symbol) != 1:
+❶         raise Exception('Symbol must be a single character string.')
+       if width <= 2:
+❷         raise Exception('Width must be greater than 2.')
+       if height <= 2:
+❸         raise Exception('Height must be greater than 2.')
+       print(symbol * width)
+       for i in range(height - 2):
+           print(symbol + (' ' * (width - 2)) + symbol)
+       print(symbol * width)
+
+   for sym, w, h in (('*', 4, 4), ('O', 20, 5), ('x', 1, 3), ('ZZ', 3, 3)):
+       try:
+           boxPrint(sym, w, h)
+❹     except Exception as err:
+❺         print('An exception happened: ' + str(err))
+
+
+
+# Getting the Traceback as a String:
+------------------------------------
+-> When Python encounters an error, it produces a treasure trove of error information called the traceback. The traceback 
+   includes the error message, the line number of the line that caused the error, and the sequence of the function calls 
+   that led to the error. This sequence of calls is called the call stack.
+
+   Eg:
+   errorExample.py:
+   ----------------
+   def spam():
+       bacon()
+   def bacon():
+       raise Exception('This is the error message.')
+   
+   spam()
+   
+   --> When you run errorExample.py, the output will look like this:
+     
+   Traceback (most recent call last):
+     File "errorExample.py", line 7, in <module>
+       spam()
+     File "errorExample.py", line 2, in spam
+       bacon()
+     File "errorExample.py", line 5, in bacon
+       raise Exception('This is the error message.')
+   Exception: This is the error message.
+
+-> Instead of displaying the traceback message we can strore it as a string in a log file using traceback.format_exc()
+   
+   Eg:
+   >>> import traceback
+   >>> try:
+            raise Exception('This is the error message.')
+   except:
+            errorFile = open('errorInfo.txt', 'w')
+            errorFile.write(traceback.format_exc())
+            errorFile.close()
+            print('The traceback info was written to errorInfo.txt.')
+   
+   116	----->  return value from the write() method
+   The traceback info was written to errorInfo.txt.
+
+
+# Assertions:
+-------------
+-> An assertion is a sanity check to make sure your code isn’t doing something obviously wrong. If the sanity check fails, 
+   then an AssertionError exception is raised.
+
+   Syntax:	assert <condition>, <A string to display when the condition is False>
+
+   Eg:
+   >>> mst = 'open'
+   >>> assert mst=='open', 'this should open'
+   >>> assert mst=='ope', 'this should open'
+   Traceback (most recent call last):
+     File "<stdin>", line 1, in <module>
+   AssertionError: this should open
+
+Note: Unlike exceptions, your code should not handle assert statements with try and except; if an assert fails, your 
+	  program should crash. Since it is for programmer error, it is used to debug program. This will reduce the amount of 
+	  code you will have to check before finding the code that’s causing the bug.
+
+
+# Disabling Assertions:
+-----------------------
+-> pass the -O option when running Python.
+
+Eg: python -O temp.py
+
+
+# Logging:
+----------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
