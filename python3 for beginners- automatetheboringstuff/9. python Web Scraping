@@ -1,5 +1,6 @@
-# Web Scraping:
----------------
+## Web Scraping:
+----------------
+
 -> Web scraping is the term for using a program to download and process content from the Web.
    Eg: Google runs many web scraping programs to index web pages for its search engine.
 
@@ -20,7 +21,12 @@ Eg:
 >>> webbrowser.open('http://inventwithpython.com/')
 
 
-
+# Downloading Files from the Web with the requests Module:
+----------------------------------------------------------
+-> The requests module lets you easily download files from the Web without having to worry about complicated issues such as 
+   network errors, connection problems, and data compression.
+-> install it : $pip install requests
+-> 
 
 
 
