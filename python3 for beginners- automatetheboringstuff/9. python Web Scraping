@@ -26,20 +26,92 @@ Eg:
 -> The requests module lets you easily download files from the Web without having to worry about complicated issues such as 
    network errors, connection problems, and data compression.
 -> install it : $pip install requests
--> 
 
 
+ # Downloading a Web Page with the requests.get() Function:
+ ----------------------------------------------------------
+ -> requests.get(): function takes a string of a URL to download, it returns a Response object.
+
+ Eg:
+ >>> import requests
+ >>> res = requests.get('https://automatetheboringstuff.com/files/rj.txt')
+ >>> type(res)
+ <class 'requests.models.Response'>
+ >>> res.status_code == requests.codes.ok
+ True
+ >>> len(res.text)
+ 178981
+ >>> print(res.text[:250])
+ The Project Gutenberg EBook of Romeo and Juliet, by William Shakespeare
 
 
+ # Checking for Errors:
+ ----------------------
+ -> A simpler way to check for success is to call the raise_for_status() method on the Response object. This will raise an 
+ 	exception if there was an error downloading the file and will do nothing if the download succeeded.
+
+ 	Eg:
+ 	>>> res = requests.get('http://inventwithpython.com/page_that_does_not_exist')
+	>>> res.raise_for_status()
+	Traceback (most recent call last):
+	  File "<pyshell#138>", line 1, in <module>
+	    res.raise_for_status()
+	  File "C:\Python34\lib\site-packages\requests\models.py", line 773, in raise_for_status
+	    raise HTTPError(http_error_msg, response=self)
+	requests.exceptions.HTTPError: 404 Client Error: Not Found
 
 
+ # Saving Downloaded Files to the Hard Drive:
+ --------------------------------------------
+ -> Open a file in write binary mode (wb) to maintain the Unicode encoding of the text.
+ -> To write the web page to a file, you can use a for loop with the Response object’s iter_content() method.
+ -> iter_content(): returns chunks of content on each iteration (chunk size(in bytes) passed as parameter)
+
+ 	Eg:
+ 	>>> import requests
+	>>> res = requests.get('https://automatetheboringstuff.com/files/rj.txt')
+	>>> res.raise_for_status()
+	>>> playFile = open('RomeoAndJuliet.txt', 'wb')
+	>>> for chunk in res.iter_content(100000):
+	        playFile.write(chunk)
+	
+	100000
+	78981
+	>>> playFile.close()
+	
+
+# Parsing HTML with the BeautifulSoup Module:
+---------------------------------------------
+-> installation: $pip install beautifulsoup4
+-> import: import bs4
 
 
+ # Creating a BeautifulSoup Object from HTML:
+ --------------------------------------------
+ -> bs4.BeautifulSoup(): takes html as string and returns a BeautifulSoup object.
+
+ 	Eg:
+ 	>>> import requests, bs4
+	>>> res = requests.get('http://nostarch.com')
+	>>> res.raise_for_status()
+	>>> noStarchSoup = bs4.BeautifulSoup(res.text)
+	>>> type(noStarchSoup)
+	<class 'bs4.BeautifulSoup'>
+
+ -> Once you have a BeautifulSoup object, you can use its methods to locate specific parts of an HTML document.
 
 
+ # Finding an Element with the select() Method:
+ ----------------------------------------------
+ -> You can retrieve a web page element from a BeautifulSoup object by calling the select()method and passing a string of a 
+ 	CSS selector for the element you are looking for.
 
+ 	Eg:
+ 	soup.select('div')
+ 	soup.select('#author')
+ 	soup.select('.notice'), etc.
 
-
+ -> select() method will return a list of Tag objects.
 
 
 
