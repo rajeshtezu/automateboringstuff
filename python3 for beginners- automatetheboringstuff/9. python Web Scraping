@@ -145,9 +145,30 @@ Eg:
     >>> spanElem.get('id')
     'author'
     
+-> For the websites where we need to login first, we will use selenium module.
 
 
+# Controlling the Browser with the selenium Module:
+---------------------------------------------------
+-> The selenium module lets Python directly control the browser by programmatically clicking links and filling in 
+   login information, almost as though there is a human user interacting with the page.
+   
+   
+ # Starting a Selenium-Controlled Browser:
+ -----------------------------------------
+ -> senenium will launch firefox bydefault.
+ 
+    Eg:
+    >>> from selenium import webdriver
+    >>> browser = webdriver.Firefox()    ---> Firefox web browser starts up
+    >>> type(browser)
+    <class 'selenium.webdriver.firefox.webdriver.WebDriver'>
+    >>> browser.get('http://inventwithpython.com')    ---> directs the browser to http://inventwithpython.com/
 
+
+ # Finding Elements on the Page:
+ -------------------------------
+ -> 
 
 
 
