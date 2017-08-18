@@ -79,6 +79,7 @@ Eg:
 	78981
 	>>> playFile.close()
 	
+    Note: We can download and save the image to the hard drive with iter_content().
 
 # Parsing HTML with the BeautifulSoup Module:
 ---------------------------------------------
