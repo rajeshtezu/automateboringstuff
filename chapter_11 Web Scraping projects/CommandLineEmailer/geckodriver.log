@@ -1,0 +1,304 @@
+1503216356048	geckodriver	INFO	Listening on 127.0.0.1:48135
+1503216356375	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503216361187	Marionette	INFO	Listening on port 42161
+1503216361603	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 104: TypeError: this._recipeManager is null
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+1503216753550	geckodriver	INFO	Listening on 127.0.0.1:53123
+1503216754708	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503216759985	Marionette	INFO	Listening on port 34533
+1503216760150	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503216824153	Marionette	INFO	Ceased listening
+1503216827361	Marionette	INFO	Ceased listening
+1503216881001	geckodriver	INFO	Listening on 127.0.0.1:46649
+1503216882177	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503216887048	Marionette	INFO	Listening on port 39461
+1503216887140	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 104: TypeError: this._recipeManager is null
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+1503217038854	Marionette	INFO	Ceased listening
+1503217042892	geckodriver	INFO	Listening on 127.0.0.1:34145
+1503217044045	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503217049085	Marionette	INFO	Listening on port 39489
+1503217049192	Marionette	WARN	TLS certificate errors will be ignored for this session
+
+(firefox:3861): Gtk-CRITICAL **: gtk_clipboard_set_with_data: assertion 'targets != NULL' failed
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1503217642904	Marionette	INFO	Ceased listening
+1503217645948	geckodriver	INFO	Listening on 127.0.0.1:33181
+1503217647105	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503217652235	Marionette	INFO	Listening on port 43213
+1503217652438	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503217667697	Marionette	INFO	Ceased listening
+1503218094673	geckodriver	INFO	Listening on 127.0.0.1:45635
+1503218095832	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503218100983	Marionette	INFO	Listening on port 40843
+1503218101112	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 104: TypeError: this._recipeManager is null
+console.warn: nsLoginManager: searchLogins: `formSubmitURL` or `httpRealm` is recommended
+1503218496257	Marionette	INFO	Ceased listening
+1503218512722	geckodriver	INFO	Listening on 127.0.0.1:34825
+1503218513889	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503218518952	Marionette	INFO	Listening on port 44201
+1503218519067	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: /_/scs/mail-static/_/js/k=gmail.main.en.RKK5Ah87d4U.O/m=sybs,syky,mo,sybr,sydc,syl1,sykz,syl8,sybl,sybx,cc,syl9,sm/am=WcE8QL4fAhxmgLFNJxBmf-Yjl4aHOb_Jfz2AHCrgC_Bv7v8J_DgAAAAAAAAAAAAAAAAAAACwRfEJ/rt=j/d=0/rs=AHGWq9DSsaWkpaKF7A2RqMKC5zKcTuUY-A, line 180: SecurityError: Permission denied to access property "GTalkNotifier" on cross-origin object
+1503218698311	Marionette	INFO	Ceased listening
+1503218701017	geckodriver	INFO	Listening on 127.0.0.1:53553
+1503218702185	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503218707030	Marionette	INFO	Listening on port 43757
+1503218707210	Marionette	WARN	TLS certificate errors will be ignored for this session
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+1503219969001	Marionette	INFO	Ceased listening
+1503220162946	geckodriver	INFO	Listening on 127.0.0.1:46007
+1503220164100	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503220169244	Marionette	INFO	Listening on port 46429
+1503220169354	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/XPCOMUtils.jsm, line 230: TypeError: Cc[aContract] is undefined
+1503220192342	Marionette	INFO	Ceased listening
+1503220194876	geckodriver	INFO	Listening on 127.0.0.1:39161
+1503220196032	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503220201122	Marionette	INFO	Listening on port 45117
+1503220201199	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503220272338	geckodriver	INFO	Listening on 127.0.0.1:50461
+1503220273492	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503220278474	Marionette	INFO	Listening on port 33023
+1503220278549	Marionette	WARN	TLS certificate errors will be ignored for this session
+Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+console.error: 
+  Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+console.error: 
+  Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+console.error: 
+  Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js, line 1491: TypeError: this.transport is null
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js, line 1491: TypeError: this.transport is null
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js, line 1491: TypeError: this.transport is null
+1503220517660	Marionette	INFO	Ceased listening
+1503220519067	Marionette	INFO	Ceased listening
+1503220525193	geckodriver	INFO	Listening on 127.0.0.1:56201
+1503220526348	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503220531505	Marionette	INFO	Listening on port 42229
+1503220531586	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503220584170	Marionette	INFO	Ceased listening
+JavaScript error: resource://gre/modules/osfile/osfile_async_front.jsm, line 396: Error: OS.File has been shut down. Rejecting post to stat
+1503220587580	geckodriver	INFO	Listening on 127.0.0.1:39849
+1503220588735	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503220593768	Marionette	INFO	Listening on port 33351
+1503220593879	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503220673247	addons.productaddons	WARN	Failed downloading XML, status: 0, reason: timeout
+1503220700005	Marionette	INFO	Ceased listening
+1503220701764	geckodriver	INFO	Listening on 127.0.0.1:38563
+1503220702918	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503220707907	Marionette	INFO	Listening on port 38935
+1503220707985	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503220746252	Marionette	INFO	Ceased listening
+1503220921839	geckodriver	INFO	Listening on 127.0.0.1:58231
+1503220922995	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503220927927	Marionette	INFO	Listening on port 45345
+1503220928096	Marionette	WARN	TLS certificate errors will be ignored for this session
+Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+console.error: 
+  Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js, line 1491: TypeError: this.transport is null
+1503221073835	Marionette	INFO	Ceased listening
+1503221077436	geckodriver	INFO	Listening on 127.0.0.1:40085
+1503221078595	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503221084974	Marionette	INFO	Listening on port 34477
+1503221085060	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503221164453	addons.productaddons	WARN	Failed downloading XML, status: 0, reason: timeout
+1503221189803	Marionette	INFO	Ceased listening
+1503221203120	geckodriver	INFO	Listening on 127.0.0.1:37845
+1503221204276	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503221209620	Marionette	INFO	Listening on port 37543
+1503221209731	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503221416683	geckodriver	INFO	Listening on 127.0.0.1:59987
+1503221417839	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503221423077	Marionette	INFO	Listening on port 46569
+1503221423188	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503221444304	Marionette	INFO	Ceased listening
+1503221444852	Marionette	INFO	Ceased listening
+1503221474832	geckodriver	INFO	Listening on 127.0.0.1:60043
+1503221475999	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503221481096	Marionette	INFO	Listening on port 44557
+1503221481214	Marionette	WARN	TLS certificate errors will be ignored for this session
+Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+console.error: 
+  Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+console.error: 
+  Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+console.error: 
+  Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+console.error: 
+  Handler function threw an exception: TypeError: this.transport is null
+Stack: send@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js:1491:5
+NEA_addSecurityInfo@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/webconsole.js:2266:5
+NetworkResponseListener.prototype._getSecurityInfo<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:495:5
+exports.makeInfallible/<@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/ThreadSafeDevToolsUtils.js:101:14
+onStartRequest@resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/shared/webconsole/network-monitor.js:436:5
+Line: 1491, column: 5
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js, line 1491: TypeError: this.transport is null
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js, line 1491: TypeError: this.transport is null
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js, line 1491: TypeError: this.transport is null
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js, line 1491: TypeError: this.transport is null
+1503221621273	Marionette	INFO	Ceased listening
+1503221624559	geckodriver	INFO	Listening on 127.0.0.1:45279
+1503221625720	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503221630708	Marionette	INFO	Listening on port 35041
+1503221630787	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503221668413	Marionette	INFO	Ceased listening
+1503221670411	geckodriver	INFO	Listening on 127.0.0.1:34001
+1503221671577	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503221676454	Marionette	INFO	Listening on port 36863
+1503221676531	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503221759143	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1503221759621	Marionette	INFO	Ceased listening
+1503221777196	geckodriver	INFO	Listening on 127.0.0.1:60597
+1503221778356	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503221783217	Marionette	INFO	Listening on port 46609
+1503221783296	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503221856399	addons.productaddons	WARN	Failed downloading via XHR, status: 0, reason: error
+1503221856802	Marionette	INFO	Ceased listening
+1503221863504	geckodriver	INFO	Listening on 127.0.0.1:43951
+1503221864660	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503221869786	Marionette	INFO	Listening on port 43307
+1503221869926	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503221960449	Marionette	INFO	Ceased listening
+1503222031708	geckodriver	INFO	Listening on 127.0.0.1:43931
+1503222032869	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503222037833	Marionette	INFO	Listening on port 43187
+1503222037914	Marionette	WARN	TLS certificate errors will be ignored for this session
+1503222067167	geckodriver	INFO	Listening on 127.0.0.1:60697
+1503222068331	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503222073117	Marionette	INFO	Listening on port 45099
+1503222073212	Marionette	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: resource://gre/modules/LoginManagerParent.jsm, line 104: TypeError: this._recipeManager is null
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/actors/highlighters/auto-refresh.js, line 202: TypeError: can't convert null to object
+JavaScript error: resource://gre/modules/commonjs/toolkit/loader.js -> resource://devtools/server/main.js, line 1491: TypeError: this.transport is null
+1503222467918	geckodriver	INFO	Listening on 127.0.0.1:39851
+1503222469085	geckodriver::marionette	INFO	Starting browser /usr/bin/firefox with args ["-marionette"]
+1503222473948	Marionette	INFO	Listening on port 43857
+1503222474036	Marionette	WARN	TLS certificate errors will be ignored for this session
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
+*************************
+A coding exception was thrown and uncaught in a Task.
+
+Full message: TypeError: NetworkError when attempting to fetch resource.
+Full stack: 
+*************************
