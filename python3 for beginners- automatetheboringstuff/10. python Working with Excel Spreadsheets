@@ -1,0 +1,42 @@
+## Working with Excel Spreadsheets:
+-----------------------------------
+-> "openpyxl" module allows python to read and modify excell sheets.
+ 
+ # Excel Documents:
+ ------------------
+ -> An Excel spreadsheet document is called a workbook.
+ -> A single workbook is saved in a file with the .xlsx extension.
+ -> Each workbook can contain multiple sheets (also called worksheets).
+ -> The sheet the user is currently viewing (or last viewed before closing Excel) is called the active sheet.
+ -> Each sheet has columns (addressed by letters starting at A) and rows (addressed by numbers starting at 1).
+
+-> install openpyxl:    $pip3 install openpyxl
+
+
+# Reading Excel Documents:
+--------------------------
+-> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
