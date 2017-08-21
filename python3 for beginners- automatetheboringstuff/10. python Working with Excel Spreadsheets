@@ -72,10 +72,42 @@
    >>> sheet['C1'].value
    73
 
+   Note: 
+   1. OpenPyXL will automatically interpret the dates in column A and return them as datetime values rather 
+      than strings.
+   
+   2. Specifying a column by letter can be tricky to program, especially because after column Z, the columns start 
+      by using two letters: AA, AB, AC, and so on. As an alternative, you can also get a cell using the sheet’s 
+      cell() method and passing integers for its row and column keyword arguments. The first row or column integer 
+      is 1, not 0.
+
+    Eg:
+    >>> sheet.cell(row=1, column=2)
+    <Cell Sheet1.B1>
+    >>> sheet.cell(row=1, column=2).value
+    'Apples'
+    >>> for i in range(1, 8, 2):
+            print(i, sheet.cell(row=i, column=2).value)
+    
+    1 Apples
+    3 Pears
+    5 Apples
+    7 Strawberries
+    
+-> We can determine the size of the sheet with the Worksheet object’s max_row and max_column member variables.
+  
+   Eg:
+   >>> import openpyxl
+   >>> wb = openpyxl.load_workbook('example.xlsx')
+   >>> sheet = wb.get_sheet_by_name('Sheet1')
+   >>> sheet.max_row
+   7
+   >>> sheet.max_column
+   3
 
 
-
-
+# Converting Between Column Letters and Numbers:
+------------------------------------------------
 
 
 
