@@ -44,7 +44,7 @@ subjectBox = browser.find_element_by_name('subjectbox')
 subjectBox.send_keys(sys.argv[4])
 
 mailText = browser.find_element_by_id(':ai')
-mailText.send_keys(sys.argv[5])
+mailText.send_keys(' '.join(sys.argv[5:]))
 
 send = browser.find_element_by_id(':92')
 send.click()
