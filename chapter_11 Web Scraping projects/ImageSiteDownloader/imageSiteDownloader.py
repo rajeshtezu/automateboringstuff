@@ -14,8 +14,7 @@ if len(sys.argv) < 2:
 	sys.exit('Usage: python imageSiteDownloader.py <search item>')
 
 else:
-	searchItem = sys.argv[1] 
-	os.makedirs(searchItem, exist_ok=True)
+	searchItem = ' '.join(sys.argv[1:])
 
 	url += searchItem
 	res = requests.get(url)
@@ -25,26 +24,32 @@ else:
 	imageElem = soup.select('.photo-list-photo-view')
 	#print(len(imageElem))
 
-	# Find image Urls and download all images
-	for i in range(min(10,len(imageElem))):
-		# Get Urls
-		imageUrl = (imageElem[i].attrs)['style']
-		imageUrl = (imageUrl.split(';')[-1]).split(':')[1]
-		imageUrl = imageUrl.split('(')
-		imageUrl = imageUrl[1].split(')')[0]
-		imageUrl = 'http:' + imageUrl
-		#print(imageUrl)
+	if len(imageElem) > 0:
+		os.makedirs(searchItem, exist_ok=True)
+		print('downloading ' + searchItem + ' images...')
+		# Find image Urls and download all images
+		for i in range(min(10,len(imageElem))):
+			# Get Urls
+			imageUrl = (imageElem[i].attrs)['style']
+			imageUrl = (imageUrl.split(';')[-1]).split(':')[1]
+			imageUrl = imageUrl.split('(')
+			imageUrl = imageUrl[1].split(')')[0]
+			imageUrl = 'http:' + imageUrl
+			#print(imageUrl)
 
-		try:
-			res = requests.get(imageUrl)
-			res.raise_for_status()
-		except:
-			continue
-		# save the image to folder searchItem
-		imageFile = open(os.path.join(searchItem, os.path.basename(imageUrl)), 'wb')
-		for chunk in res.iter_content(100000):
-			imageFile.write(chunk)
-		imageFile.close()
+			try:
+				res = requests.get(imageUrl)
+				res.raise_for_status()
+			except:
+				print(imageUrl + ' image not found.')
+				continue
+			# save the image to folder searchItem
+			imageFile = open(os.path.join(searchItem, os.path.basename(imageUrl)), 'wb')
+			for chunk in res.iter_content(100000):
+				imageFile.write(chunk)
+			imageFile.close()
+	else:
+		print('No ' + searchItem + ' image found.')
 
 
 
