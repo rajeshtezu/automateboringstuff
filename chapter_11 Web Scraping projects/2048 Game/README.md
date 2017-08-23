@@ -5,7 +5,7 @@
 
 ## Install the requirements to run this program by
 ```
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Run the program 
