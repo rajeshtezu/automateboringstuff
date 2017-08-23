@@ -10,7 +10,7 @@
   git clone https://github.com/rajeshtezu90/automateboringstuff.git
   ```
   
-### For more details you are welcome to write at
+### For any query feel free to write me
   ```
   rajeshtezu90@gmail.com
   ```
