@@ -254,7 +254,109 @@
     'Hello world!'
 
 
+# Setting the Font Style of Cells:
+----------------------------------
+-> To customize font styles in cells, important, import the Font() function from the openpyxl.styles module.
+
+   Eg:
+     >>> import openpyxl
+     >>> from openpyxl.styles import Font
+     >>> wb = openpyxl.Workbook()
+     >>> sheet = wb.get_sheet_by_name('Sheet')
+     >>> italic24Font = Font(size=24, italic=True)
+     >>> sheet['A1'].font = italic24Font
+     >>> sheet['A1'] = 'Hello world!'
+     >>> wb.save('styled.xlsx')
+   
+ 
+ # Font Objects:
+ ---------------
+ -> keyword arguments: 
+     name   --> String  --> Eg: 'Calibri' or 'Times New Roman'
+     size   --> Integer
+     bold   --> Boolean
+     italic --> Boolean
+     
+     Eg: Font(name='Calibri', size=24, bold=True, italic=True)
 
 
+# Formulas:
+-----------
+
+Eg: Sets the B9 cell to a formula that calculates the sum of values in cells B1 to B8
+>>> sheet['B9'] = '=SUM(B1:B8)'
 
 
+# Adjusting Rows and Columns:
+-----------------------------
+
+ # Setting Row Height and Column Width:
+ --------------------------------------
+ Eg:
+ >>> import openpyxl
+ >>> wb = openpyxl.Workbook()
+ >>> sheet = wb.active
+ >>> sheet['A1'] = 'Tall row'
+ >>> sheet['B2'] = 'Wide column'
+ >>> sheet.row_dimensions[1].height = 70
+ >>> sheet.column_dimensions['B'].width = 20
+ >>> wb.save('dimensions.xlsx')
+
+ Note:
+    1. The row height can be set to an integer or float value between 0 and 409. Default row height is 12.75. 
+    2. The column width can be set to an integer or float value between 0 and 255. Default column width is 8.43 
+       characters.
+
+
+ # Merging and Unmerging Cells:
+ ------------------------------
+ -> A rectangular area of cells can be merged into a single cell with the merge_cells() sheet method.
+ 
+    Eg:
+    >>> import openpyxl
+    >>> wb = openpyxl.Workbook()
+    >>> sheet = wb.active
+    >>> sheet.merge_cells('A1:D3')
+    >>> sheet['A1'] = 'Twelve cells merged together.'
+    >>> sheet.merge_cells('C5:D5')
+    >>> sheet['C5'] = 'Two merged cells.'
+    >>> wb.save('merged.xlsx')
+    
+  -> To unmerge cells, call the unmerge_cells() sheet method.
+  
+     Eg:
+     >>> sheet.unmerge_cells('A1:D3')
+
+
+ # Freeze Panes:
+ ---------------
+ -> For spreadsheets too large to be displayed all at once, it’s helpful to “freeze” a few of the top rows or 
+    leftmost columns onscreen.
+
+ -> To unfreeze all panes, set freeze_panes to None or 'A1'.
+ 
+    freeze_panes setting            Rows and columns frozen
+    --------------------            -----------------------
+    sheet.freeze_panes = 'A2'        Row 1
+    sheet.freeze_panes = 'B1'        Column A
+    sheet.freeze_panes = 'C1'        Columns A and B
+    sheet.freeze_panes = 'C2'        Row 1 and columns A and B
+    sheet.freeze_panes = 'A1'        No frozen panes
+    or sheet.freeze_panes = None
+
+    Eg:
+    >>> import openpyxl
+    >>> wb = openpyxl.load_workbook('produceSales.xlsx')
+    >>> sheet = wb.active
+    >>> sheet.freeze_panes = 'A2'
+    >>> wb.save('freezeExample.xlsx')
+    
+
+# Charts:
+---------
+-> OpenPyXL supports creating bar, line, scatter, and pie charts using the data in a sheet’s cells.
+
+[read whenever needed]
+
+
+--------------------------------------------The End-------------------------------------------------------------
