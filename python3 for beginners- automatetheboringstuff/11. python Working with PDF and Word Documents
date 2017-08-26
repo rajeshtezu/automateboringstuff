@@ -1,0 +1,174 @@
+# Working with PDF and word Documents:
+--------------------------------------
+-> PDF and Word documents are binary files, which makes them much more complex than plaintext files. In addition to text, 
+   they store lots of font, color, and layout information.
+
+
+# PDF Documents:
+----------------
+-> Module used: PyPDF2
+-> installation: pip3 install PyPDF2
+
+
+# Extracting Text from PDFs:
+----------------------------
+-> PyPDF2 does not have a way to extract images, charts, or other media from PDF documents, but it can extract text and 
+   return it as a Python string.
+
+   Eg:
+   >>> import PyPDF2
+   >>> pdfFileObj = open('meetingminutes.pdf', 'rb')
+   >>> pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+   >>> pdfReader.numPages
+   19
+   >>> pageObj = pdfReader.getPage(0)
+   >>> pageObj.extractText()
+   'OOFFFFIICCIIAALL BBOOAARRDD MMIINNUUTTEESS Meeting of March 7, 2015
+   \n     The Board of Elementary and Secondary Education shall provide leadership
+   and create policies for education that expand opportunities for children,
+   empower families and communities, and advance Louisiana in an increasingly
+   competitive global market. BOARD of ELEMENTARY and SECONDARY EDUCATION '
+
+
+# Decrypting PDFs:
+------------------
+-> Password protected pdf file.
+
+   Eg:
+   >>> import PyPDF2
+   >>> pdfReader = PyPDF2.PdfFileReader(open('encrypted.pdf', 'rb'))
+   >>> pdfReader.isEncrypted
+   True
+   
+   >>> pdfReader.getPage(0)
+   Traceback (most recent call last):
+     File "<pyshell#173>", line 1, in <module>
+       pdfReader.getPage()
+     --snip--
+     File "C:\Python34\lib\site-packages\PyPDF2\pdf.py", line 1173, in getObject
+       raise utils.PdfReadError("file has not been decrypted")
+   PyPDF2.utils.PdfReadError: file has not been decrypted
+   
+   >>> pdfReader.decrypt('rosebud')
+   1
+   >>> pageObj = pdfReader.getPage(0)
+
+Note: if you get any error while running [pdfReader.getPage(0)] find solution here
+		https://github.com/mstamy2/PyPDF2/pull/359/commits/f80eb5f5d53a8f6f61c3b4f3ea2cbadc6abb3d5a
+
+
+# Creating PDFs:
+----------------
+-> PdfFileWriter() used to create pdf.
+-> PyPDF2 cannot write arbitrary text to a PDF like Python can do with plaintext files.
+-> PyPDF2 doesn’t allow you to directly edit a PDF instead create new one.
+
+ # Copying Pages:
+ ----------------
+
+	Eg:
+ 	>>> import PyPDF2
+    >>> pdf1File = open('meetingminutes.pdf', 'rb')
+    >>> pdf2File = open('meetingminutes2.pdf', 'rb')
+    >>> pdf1Reader = PyPDF2.PdfFileReader(pdf1File)
+    >>> pdf2Reader = PyPDF2.PdfFileReader(pdf2File)
+    >>> pdfWriter = PyPDF2.PdfFileWriter()
+ 
+    >>> for pageNum in range(pdf1Reader.numPages):
+            pageObj = pdf1Reader.getPage(pageNum)
+            pdfWriter.addPage(pageObj)
+ 
+    >>> for pageNum in range(pdf2Reader.numPages):
+            pageObj = pdf2Reader.getPage(pageNum)
+            pdfWriter.addPage(pageObj)
+ 
+    >>> pdfOutputFile = open('combinedminutes.pdf', 'wb')
+    >>> pdfWriter.write(pdfOutputFile)
+    >>> pdfOutputFile.close()
+    >>> pdf1File.close()
+    >>> pdf2File.close()
+
+
+# Rotating Pages:
+-----------------
+
+   Eg:
+   >>> import PyPDF2
+   >>> minutesFile = open('meetingminutes.pdf', 'rb')
+   >>> pdfReader = PyPDF2.PdfFileReader(minutesFile)
+   >>> page = pdfReader.getPage(0)
+   >>> page.rotateClockwise(90)
+   {'/Contents': [IndirectObject(961, 0), IndirectObject(962, 0),
+   --snip--
+   }
+   >>> pdfWriter = PyPDF2.PdfFileWriter()
+   >>> pdfWriter.addPage(page)
+   >>> resultPdfFile = open('rotatedPage.pdf', 'wb')
+   >>> pdfWriter.write(resultPdfFile)
+   >>> resultPdfFile.close()
+   >>> minutesFile.close()
+
+
+# Overlaying Pages:
+-------------------
+-> Adding logo, timestamp, or watermark [ie; merging two pages, one on top of another]
+
+   Eg:
+   >>> import PyPDF2
+   >>> minutesFile = open('meetingminutes.pdf', 'rb')
+   >>> pdfReader = PyPDF2.PdfFileReader(minutesFile)
+   >>> minutesFirstPage = pdfReader.getPage(0)
+   >>> pdfWatermarkReader = PyPDF2.PdfFileReader(open('watermark.pdf', 'rb'))
+   >>> minutesFirstPage.mergePage(pdfWatermarkReader.getPage(0))
+   >>> pdfWriter = PyPDF2.PdfFileWriter()
+   >>> pdfWriter.addPage(minutesFirstPage)
+
+   >>> for pageNum in range(1, pdfReader.numPages):
+           pageObj = pdfReader.getPage(pageNum)
+           pdfWriter.addPage(pageObj)
+   >>> resultPdfFile = open('watermarkedCover.pdf', 'wb')
+   >>> pdfWriter.write(resultPdfFile)
+   >>> minutesFile.close()
+   >>> resultPdfFile.close()
+
+
+# Encrypting PDFs:
+------------------
+-> pdfWriter.encrypt(<password_string>): method to encrypt pdf.
+
+	Eg:
+	>>> import PyPDF2
+    >>> pdfFile = open('meetingminutes.pdf', 'rb')
+    >>> pdfReader = PyPDF2.PdfFileReader(pdfFile)
+    >>> pdfWriter = PyPDF2.PdfFileWriter()
+    >>> for pageNum in range(pdfReader.numPages):
+            pdfWriter.addPage(pdfReader.getPage(pageNum))
+ 
+    >>> pdfWriter.encrypt('swordfish')
+    >>> resultPdf = open('encryptedminutes.pdf', 'wb')
+    >>> pdfWriter.write(resultPdf)
+    >>> resultPdf.close()
+
+Note: PDFs can have a user password (allowing you to view the PDF) and an owner password (allowing you to set permissions 
+	  for printing, commenting, extracting text, and other features). The user password and owner password are the first and 
+	  second arguments to encrypt(), respectively. If only one string argument is passed to encrypt(), it will be used for 
+	  both passwords.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
