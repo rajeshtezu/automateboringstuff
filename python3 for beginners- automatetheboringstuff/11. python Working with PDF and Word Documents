@@ -153,22 +153,170 @@ Note: PDFs can have a user password (allowing you to view the PDF) and an owner 
 	  for printing, commenting, extracting text, and other features). The user password and owner password are the first and 
 	  second arguments to encrypt(), respectively. If only one string argument is passed to encrypt(), it will be used for 
 	  both passwords.
+---------------------------------------------------------------------------------------------------------------------------
 
 
+# Word Documents:
+-----------------
+-> File extension: .docx
+-> module: python-docx
+-> installation: pip install python-docx
+
+  Note: you’ll need to run import docx, not import python-docx.
+
+-> Structure of Word Document:
+    Document object --> list of Paragraph objects[ENTER] --> list of one or more Run objects
+
+    * Document object: represents the entire document.
+    * Run object is a contiguous run of text with the same style.
+    
+
+ # Reading Word Documents:
+ -------------------------
+  Eg:
+  >>> import docx
+  >>> doc = docx.Document('demo.docx')
+  >>> len(doc.paragraphs)
+   7
+  >>> doc.paragraphs[0].text
+   'Document Title'
+  >>> doc.paragraphs[1].text
+   'A plain paragraph with some bold and some italic'
+  >>> len(doc.paragraphs[1].runs)
+   4
+  >>> doc.paragraphs[1].runs[0].text
+   'A plain paragraph with some '
+  >>> doc.paragraphs[1].runs[1].text
+   'bold'
+  >>> doc.paragraphs[1].runs[2].text
+   ' and some '
+  >>> doc.paragraphs[1].runs[3].text
+   'italic'
 
 
+ # Getting the Full Text from a .docx File:
+ ------------------------------------------
+ -> get entire text of file without styling.
+
+  Eg: 
+  filename: readDocx.py
+  ---------------------
+  #! python3
+
+  import docx
+  
+  def getText(filename):
+      doc = docx.Document(filename)
+      fullText = []
+      for para in doc.paragraphs:
+          fullText.append(para.text)
+      return '\n'.join(fullText)
+  
+ -> Now the readDocx.py program can be imported like any other module. :)
 
 
+ # Styling Paragraph and Run Objects:
+ ------------------------------------
+ 1. Paragraph styles : applied to Paragraph objects
+ 2. character styles : applied to Run objects
+ 3. linked styles : applied to both kinds of objects
+
+ -> String for default style values:
+    'Quote', 'Normal', 'Heading5', 'ListBullet', 'ListParagraph', 'BodyText', 'Heading6' etc
+
+ Eg-1:
+ paragraphObj.style = 'Quote'
+
+ Note: When using a linked style for a Run object, you will need to add 'Char' to the end of its name.
+
+ Eg-2:
+ runObj.style = 'QuoteChar'
+
+  
+ # Run Attributes:
+ -----------------
+ -> Runs can be further styled using text attributes.
+ -> values: True, False, None(will take default value set)
+
+ ->attributes: bold, italic, underline, strike, double_strike, all_caps, small_caps, shadow, outline, rtl, imprint, emboss   
+  
+  Eg:
+  >>> doc = docx.Document('demo.docx')
+  >>> doc.paragraphs[0].text
+  'Document Title'
+  >>> doc.paragraphs[0].style
+  'Title'
+  >>> doc.paragraphs[0].style = 'Normal'
+  >>> doc.paragraphs[1].text
+  'A plain paragraph with some bold and some italic'
+  >>> (doc.paragraphs[1].runs[0].text, doc.paragraphs[1].runs[1].text, doc.
+  paragraphs[1].runs[2].text, doc.paragraphs[1].runs[3].text)
+  ('A plain paragraph with some ', 'bold', ' and some ', 'italic')
+  >>> doc.paragraphs[1].runs[0].style = 'QuoteChar'
+  >>> doc.paragraphs[1].runs[1].underline = True
+  >>> doc.paragraphs[1].runs[3].underline = True
+  >>> doc.save('restyled.docx')
 
 
+ # Writing Word Documents:
+ -------------------------
+ -> add_paragraph() : adds new paragraph.
+ -> add_run() : add text to the end of an existing paragraph.
+
+  Eg:
+  >>> import docx
+  >>> doc = docx.Document()
+  >>> doc.add_paragraph('Hello world!')
+  <docx.text.Paragraph object at 0x000000000366AD30>
+  >>> paraObj1 = doc.add_paragraph('This is a second paragraph.')
+  >>> paraObj2 = doc.add_paragraph('This is a yet another paragraph.')
+  >>> paraObj1.add_run(' This text is being added to the second paragraph.')
+  <docx.text.Run object at 0x0000000003A2C860>
+  >>> doc.save('multipleParagraphs.docx')
+
+ -> Both add_paragraph() and add_run() accept an optional second argument that is a string of the Paragraph or Run object’s 
+    style.
+
+    Eg:
+    >>> doc.add_paragraph('Hello world!', 'Title')
+
+ 
+ # Adding Headings:
+ ------------------
+ -> add_heading(<heading name>, <style_number/0/1/2/3/4>)
+ -> The integer 0 makes the heading the Title style.
+
+  Eg:
+  >>> doc = docx.Document()
+  >>> doc.add_heading('Header 0', 0)
+  <docx.text.Paragraph object at 0x00000000036CB3C8>
+  >>> doc.add_heading('Header 1', 1)
+  <docx.text.Paragraph object at 0x00000000036CB630>
+  >>> doc.save('headings.docx')
 
 
+ # Adding Line and Page Breaks:
+ ------------------------------
+ -> add_break(): call on run object to add line break.
+ -> add_break(docx.text.WD_BREAK.PAGE) : call on run object to add page break.
+
+    Eg:
+    >>> doc = docx.Document()
+    >>> doc.add_paragraph('This is on the first page!')
+    <docx.text.Paragraph object at 0x0000000003785518>
+    >>> doc.paragraphs[0].runs[0].add_break(docx.text.WD_BREAK.PAGE)
+    >>> doc.add_paragraph('This is on the second page!')
+    <docx.text.Paragraph object at 0x00000000037855F8>
+    >>> doc.save('twoPage.docx')
 
 
+ # Adding Pictures:
+ ------------------
+
+  Eg:
+  >>> doc.add_picture('zophie.png', width=docx.shared.Inches(1),
+  height=docx.shared.Cm(4))
+  <docx.shape.InlineShape object at 0x00000000036C7D30>
 
 
-
-
-
-
-
+---------------------------------------------------The End-----------------------------------------------------------------
