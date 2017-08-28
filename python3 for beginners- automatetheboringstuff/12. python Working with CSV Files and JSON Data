@@ -73,13 +73,40 @@
  >>> csvFile.close()
 
 
+# JSON and APIs:
+----------------
+-> This is known as providing an application programming interface (API).
+
+ # The JSON Module:
+ ------------------
+ -> It can contain values of only the following data types: strings, integers, floats, Booleans, lists, 
+    dictionaries, and NoneType.
 
 
+ # Reading JSON with the loads() Function:
+ -----------------------------------------
+ -> json.loads(): To translate a string containing JSON data into a Python value.
+ 
+    Eg:
+    >>> stringOfJsonData = '{"name": "Zophie", "isCat": true, "miceCaught": 0, "felineIQ": null}'
+    >>> import json
+    >>> jsonDataAsPythonValue = json.loads(stringOfJsonData)
+    >>> jsonDataAsPythonValue
+    {'isCat': True, 'miceCaught': 0, 'name': 'Zophie', 'felineIQ': None}
+
+    Note: JSON strings always use double quotes.
 
 
-
-
-
+ # Writing JSON with the dumps() Function:
+ -----------------------------------------
+ -> json.dumps() : translate a Python value into a string of JSON-formatted data.
+ 
+    Eg:
+    >>> pythonValue = {'isCat': True, 'miceCaught': 0, 'name': 'Zophie', 'felineIQ': None}
+    >>> import json
+    >>> stringOfJsonData = json.dumps(pythonValue)
+    >>> stringOfJsonData
+    '{"isCat": true, "felineIQ": null, "miceCaught": 0, "name": "Zophie" }'
 
 
 
