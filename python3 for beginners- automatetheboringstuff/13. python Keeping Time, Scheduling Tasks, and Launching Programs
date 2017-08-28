@@ -28,10 +28,102 @@
     time.sleep(1)
 
 
+# The datetime Module:
+----------------------
+-> datetime values represent a specific moment in time.
+
+   Eg:
+   >>> import datetime
+   >>> datetime.datetime.now()
+   datetime.datetime(2015, 2, 27, 11, 10, 49, 55, 53)
+   >>> dt = datetime.datetime(2015, 10, 21, 16, 29, 0)
+   >>> dt.year, dt.month, dt.day
+   (2015, 10, 21)
+   >>> dt.hour, dt.minute, dt.second
+   (16, 29, 0)
+
+-> datetime.datetime.fromtimestamp() : Converted Unix epoch timestamp to a datetime object.
+   Eg:
+   >>> datetime.datetime.fromtimestamp(1000000)
+   datetime.datetime(1970, 1, 12, 5, 46, 40)
+   >>> datetime.datetime.fromtimestamp(time.time())
+   datetime.datetime(2017, 8, 28, 10, 7, 9, 746417)
+
+   Note: datetime objects can be compared with each other using comparison operators to find out which one 
+         precedes the other. The later datetime object is the “greater” value.
+
+   Eg:
+   >>> halloween2015 = datetime.datetime(2015, 10, 31, 0, 0, 0)
+   >>> newyears2016 = datetime.datetime(2016, 1, 1, 0, 0, 0)
+   >>> oct31_2015 = datetime.datetime(2015, 10, 31, 0, 0, 0)
+   >>> halloween2015 == oct31_2015
+   True
+   >>> halloween2015 > newyears2016
+   False
+   >>> newyears2016 > halloween2015
+   True
+   >>> newyears2016 != oct31_2015
+   True
 
 
+ # The timedelta Data Type:
+ --------------------------
+ -> represents a duration of time rather than a moment in time.
+    
+    Eg:
+    >>> delta = datetime.timedelta(days=11, hours=10, minutes=9, seconds=8)
+    >>> delta.days, delta.seconds, delta.microseconds
+    (11, 36548, 0)
+    >>> delta.total_seconds()
+    986948.0
+    >>> str(delta)
+    '11 days, 10:09:08'
+
+ -> The arithmetic operators can be used to perform date arithmetic on datetime values.
+ 
+    Eg: to calculate the date 1,000 days from now
+    >>> dt = datetime.datetime.now()
+    >>> dt
+    datetime.datetime(2015, 2, 27, 18, 38, 50, 636181)
+    >>> thousandDays = datetime.timedelta(days=1000)
+    >>> dt + thousandDays
+    datetime.datetime(2017, 11, 23, 18, 38, 50, 636181)
+
+    Note: timedelta objects can be added or subtracted with datetime objects or other timedelta objects using the 
+          + and - operators. A timedelta object can be multiplied or divided by integer or float values with the * 
+          and / operators.
 
 
+    Eg: Pausing Until a Specific Date
+    import datetime, time
+    halloween2016 = datetime.datetime(2016, 10, 31, 0, 0, 0)
+    while datetime.datetime.now() < halloween2016:
+        time.sleep(1)
+
+
+ # Converting datetime Objects into Strings:
+ -------------------------------------------
+ -> strftime() : display a datetime object as a string.
+    
+    Note: The strftime() method uses directives similar to Python’s string formatting. [see the book]
+    
+    Eg:
+    >>> oct21st = datetime.datetime(2015, 10, 21, 16, 29, 0)
+    >>> oct21st.strftime('%Y/%m/%d %H:%M:%S')
+    '2015/10/21 16:29:00'
+    >>> oct21st.strftime('%I:%M %p')
+    '04:29 PM'
+    >>> oct21st.strftime("%B of '%y")
+    "October of '15"
+ 
+ 
+ # Converting Strings into datetime Objects:
+ -------------------------------------------
+     Eg:
+     >>> datetime.datetime.strptime('October 21, 2015', '%B %d, %Y')
+     datetime.datetime(2015, 10, 21, 0, 0)
+     >>> datetime.datetime.strptime('2015/10/21 16:29:00', '%Y/%m/%d %H:%M:%S')
+     datetime.datetime(2015, 10, 21, 16, 29)
 
 
 
