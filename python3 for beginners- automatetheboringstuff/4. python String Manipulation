@@ -118,7 +118,7 @@ Eg-1:
 >>> 'Hello World'.rjust(20)
 '         Hello World'
 >>> 'Hello'.ljust(10)
-'Hello 
+'Hello     '
 
 Here, 'Hello'.rjust(10) says that we want to right-justify 'Hello' in a string of total length 10.
 
