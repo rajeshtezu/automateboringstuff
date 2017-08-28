@@ -126,13 +126,38 @@
      datetime.datetime(2015, 10, 21, 16, 29)
 
 
+# Multithreading:
+-----------------
+-> threading.Thread() : creates separate thread.
+
+   Eg:
+   import threading, time
+   print('Start of program.')
+
+   def takeANap():
+        time.sleep(5)
+        print('Wake up!')
+        
+   threadObj = threading.Thread(target=takeANap)
+   threadObj.start()
+   
+   print('End of program.')
+
+Note: A Python program will not terminate until all its threads have terminated.
 
 
+ # Passing Arguments to the Thread’s Target Function:
+ ----------------------------------------------------
+ Eg:
+ >>> import threading
+ >>> threadObj = threading.Thread(target=print, args=['Cats', 'Dogs', 'Frogs'], kwargs={'sep': ' & '})
+ >>> threadObj.start()
+ Cats & Dogs & Frogs
 
 
-
-
-
+ # Concurrency Issues:
+ ---------------------
+ -> For now remember : To avoid concurrency issues, never let multiple threads read or write the same variables.
 
 
 
