@@ -1,0 +1,48 @@
+# Keeping Time, Scheduling Tasks, and Launching Programs:
+---------------------------------------------------------
+
+# The time Module:
+------------------
+
+ # The time.time() Function:
+ ---------------------------
+ -> The Unix epoch is a time reference commonly used in programming: 12 AM on January 1, 1970, Coordinated 
+    Universal Time (UTC).
+ -> time.time() : returns the number of seconds(epoch timestamp) since that moment as a float value.
+ 
+    Eg:
+    >>> import time
+    >>> time.time()
+    1503912387.2565062
+    
+    Note: we can use it to find how much time does a code takes to run.
+
+ # The time.sleep() Function:
+ ----------------------------
+ -> time.sleep(<number of seconds>) : to pause a program for a specific duration.
+ -> pressing CTRL-C will not interrupt time.sleep() calls in IDLE. Use for loop with small sleep time if you 
+    may use CTRL-C.
+    
+    Eg:
+    >>> for i in range(30):
+    time.sleep(1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
