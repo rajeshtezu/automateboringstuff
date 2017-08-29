@@ -159,7 +159,77 @@ Note: A Python program will not terminate until all its threads have terminated.
  ---------------------
  -> For now remember : To avoid concurrency issues, never let multiple threads read or write the same variables.
 
+--------------------------------------------------------------------------------------------------------------------------
 
 
+# Launching Other Programs from Python:
+---------------------------------------
+-> Module   : subprocess
+-> function : Popen()
 
+-> Every process can have multiple threads. Unlike threads, a process cannot directly read and write another process’s 
+   variables.
+
+->If you want to start an external program from your Python script, pass the program’s filename to subprocess.Popen(). 
+  (On Windows, right-click the application’s Start menu item and select Properties to view the application’s filename.
+
+   Note: launched program is not run in the same thread as your Python program.
+
+
+   Eg-1: On a Windows computer, enter the following into the interactive shell:
+   >>> import subprocess
+   >>> subprocess.Popen('C:\\Windows\\System32\\calc.exe')
+   <subprocess.Popen object at 0x0000000003055A58>
+
+
+   Eg-2: On Ubuntu Linux, you would enter the following:
+   >>> import subprocess
+   >>> subprocess.Popen('/usr/bin/gnome-calculator')
+   <subprocess.Popen object at 0x7f2bcf93b20>
+
+   -> The return value is a Popen object, which has two useful methods: poll() and wait().
+
+   -> poll() : returns None if process is running, 
+               0 if process terminated without any error, 
+               1 if process terminated with any error.
+
+   -> wait() : block/pause until the launched process has terminated. returns process’s integer exit code.
+
+
+# Passing Command Line Arguments to Popen():
+--------------------------------------------
+  Eg:
+  >>> subprocess.Popen(['C:\\Windows\\notepad.exe', 'C:\\hello.txt'])
+  <subprocess.Popen object at 0x00000000032DCEB8>
+
+  -> This will not only launch the Notepad application but also have it immediately open the C:\hello.txt file.
+  -> The first string in this list passed to Popen() will be the executable filename of the program you want to launch; 
+     all the subsequent strings will be the command line arguments to pass to the program when it starts.
+
+
+# Running Other Python Scripts:
+-------------------------------
+  Eg-1: On windows
+  >>> subprocess.Popen(['C:\\python34\\python.exe', 'hello.py'])
+  <subprocess.Popen object at 0x000000000331CF28>
+
+  Eg-2: On Linux
+  >>> subprocess.Popen(['/usr/bin/python3', 'hello.py'])
+  <subprocess.Popen object at 0x000000000331CF28>
+
+
+#  Opening Files(document) with Default Applications:
+-----------------------------------------------------
+-> passing 'start', 'open', or 'see' to Popen() depending on system.[Works like double click]
+    1. start : For Windows 
+    2. open  : For OS X
+    3. see   : For Linux
+
+    Eg:
+    >>> import subprocess
+    >>> subprocess.Popen(['start', 'hello.txt'], shell=True)
+
+    Note: shell=True keyword argument, needed only on Windows.
+
+----------------------------------------------The End----------------------------------------------------------------
 
