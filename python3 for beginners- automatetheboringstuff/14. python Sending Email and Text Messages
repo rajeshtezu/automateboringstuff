@@ -35,7 +35,7 @@
 
   # Sending the SMTP “Hello” Message:
   -----------------------------------
-  -> ehlo() : method to send mail.
+  -> ehlo() : method to establish a connection to the server by sending hello message.
   -> Just be sure to call the ehlo() method first thing after getting the SMTP object or else the later method 
      calls will result in errors.
 
