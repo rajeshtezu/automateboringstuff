@@ -1,0 +1,103 @@
+# Sending Email and Text Messages:
+----------------------------------
+
+# SMTP:
+-------
+-> to send mail
+-> module: smtplib
+-> IMAP used to retrieve mail.
+
+ # Sending Email:
+ ----------------
+ 
+  # Connecting to an SMTP Server:
+  -------------------------------
+  -> list of few smtp service provider. 
+  -> port no. used:  587
+  
+      Provider                    SMTP server domain name
+      --------                    -----------------------
+      Gmail                        smtp.gmail.com
+      Outlook.com/Hotmail.com      smtp-mail.outlook.com
+      Yahoo Mail                   smtp.mail.yahoo.com
+
+
+  -> The SMTP object represents a connection to an SMTP mail server and has methods for sending emails.
+  
+     Eg:
+     >>> smtpObj = smtplib.SMTP('smtp.gmail.com', 587)
+     >>> type(smtpObj)
+     <class 'smtplib.SMTP'> 
+
+    Note: If the smtplib.SMTP() call is not successful, your SMTP server might not support TLS on port 587. In 
+          this case, you will need to create an SMTP object using smtplib.SMTP_SSL() and port 465 instead.
+
+
+  # Sending the SMTP “Hello” Message:
+  -----------------------------------
+  -> ehlo() : method to send mail.
+  -> Just be sure to call the ehlo() method first thing after getting the SMTP object or else the later method 
+     calls will result in errors.
+
+    Eg:
+    >>> smtpObj.ehlo()
+    (250, b'smtp.gmail.com at your service, [13.64.199.16]\nSIZE          
+    35882577\n8BITMIME\nSTARTTLS\nENHANCEDSTATUSCODES\nPIPELINING\nCHUNKING\nSMTPUTF8')
+
+    Note: 250 in tuple is success code.
+
+
+  # Starting TLS Encryption:
+  --------------------------
+  -> Next we need to call starttls() method.
+  -> This required step enables encryption for your connection.
+  -> If you are connecting to port 465 (using SSL), then encryption is already set up, and you should skip 
+     this step.
+     
+     Eg:
+     >>> smtpObj.starttls()
+     (220, b'2.0.0 Ready to start TLS')
+     
+     Note: The 220 in the return value tells you that the server is ready.
+     
+     
+  # Logging in to the SMTP Server:
+  --------------------------------
+    Eg:
+    >>> smtpObj.login(' my_email_address@gmail.com ', ' MY_SECRET_PASSWORD ')
+    (235, b'2.7.0 Accepted')
+
+    Note: The 235 in the return value means authentication was successful.
+          Python will raise an smtplib.SMTPAuthenticationError exception for incorrect passwords.
+
+
+  # Sending an Email:
+  -------------------
+  -> sendmail() : After successful login we can use this method to send mail.
+     Return value is dictionary. For every failed delivery one key-value pair. Empty dictionary means all success.
+      
+     Eg:
+     >>> smtpObj.sendmail(' my_email_address@gmail.com ', ' recipient@example.com ',
+        'Subject: So long.\nDear Alice, so long and thanks for all the fish. Sincerely,Bob')
+     {}
+
+      Arguments:
+      1. Your email address as a string (for the email’s “from” address)
+      2. The recipient’s email address as a string or a list of strings for multiple recipients (for the “to” 
+         address)
+      3. The email body as a string
+      
+      Note: The start of the email body string must begin with 'Subject: \n' for the subject line of the email. 
+            The '\n' newline character separates the subject line from the main body of the email.
+
+
+  # Disconnecting from the SMTP Server:
+  -------------------------------------
+  Eg:
+  >>> smtpObj.quit()
+  (221, b'2.0.0 closing connection ko10sm23097611pbd.52 - gsmtp')
+  
+  Note: The 221 in the return value means the session is ending.
+
+
+
