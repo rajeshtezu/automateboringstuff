@@ -98,6 +98,126 @@
   (221, b'2.0.0 closing connection ko10sm23097611pbd.52 - gsmtp')
   
   Note: The 221 in the return value means the session is ending.
+---------------------------------------------------------------------------------------------------------------------------
+
+
+# IMAP:
+-------
+-> Internet Message Access Protocol (IMAP) specifies how to communicate with an email provider’s server to retrieve emails 
+   sent to your email address.
+-> Python module : imaplib
+-> Third party python module: "imapclient" (Easy to use, this one discussed in this chapter)
+                              * downloads emails from an IMAP server in a complicated format.
+                              * "pyzmail36" module does the hard job of parsing these email messages for us. 
+
+-> install packages: pip3 install imapclient pyzmail36
+-> import imapclient, pyzmail 
+
+
+ # Retrieving and Deleting Emails with IMAP:
+ -------------------------------------------
+ 
+  # Connecting to an IMAP Server:
+  -------------------------------
+
+      provider                  IMAP server domain name
+      --------                  -----------------------
+      Gmail                     imap.gmail.com
+      Outlook.com/Hotmail.com   imap-mail.outlook.com
+      Yahoo Mail                imap.mail.yahoo.com
+
+
+  -> create an IMAPClient object. Most email providers require SSL encryption, so pass the ssl=True keyword argument.
+     Eg:
+     >>> import imapclient
+     >>> imapObj = imapclient.IMAPClient('imap.gmail.com', ssl=True)
+
+
+  # Logging in to the IMAP Server:
+  --------------------------------
+
+  Eg:
+  >>> imapObj.login(' my_email_address@gmail.com ', ' MY_SECRET_PASSWORD ')
+  'my_email_address@gmail.com Jane Doe authenticated (Success)'
+
+  -> raise imaplib.error exception if username/password are incorrect.
+
+
+  # Searching for Email:
+  ----------------------
+
+   # Selecting a Folder:
+   ---------------------
+   -> list_folders() : returns list tuples of folders. Each tuple contains information about a single folder.
+      ie; INBOX,Drafts, etc
+ 
+      Eg:
+      >>> import pprint
+      >>> pprint.pprint(imapObj.list_folders())
+      [(('\\HasNoChildren',), '/', 'Drafts'),
+       (('\\HasNoChildren',), '/', 'Filler'),
+       (('\\HasNoChildren',), '/', 'INBOX')
+       --snip-
+      ]
+ 
+   -> select a folder
+ 
+      Eg:
+      >>> imapObj.select_folder('INBOX', readonly=True)
+ 
+          -> will raise an imaplib.error exception if searched folder doesn't exist.
+ 
+
+   # Performing the Search:
+   ------------------------
+   -> search() : argument passed is list of strings. Returns UIDs. Pass these UIDs to fetch() method to obtain the email 
+      content.
+
+   -> Search key: 'ALL', 
+                  'BEFORE date', 'ON date', 'SINCE date'
+                  'SUBJECT string', 'BODY string', 'TEXT string'
+                  'FROM string', 'TO string', 'CC string', 'BCC string'
+                  'SEEN', 'UNSEEN'
+                  'ANSWERED', 'UNANSWERED'
+                  'DELETED', 'UNDELETED'
+                  'DRAFT', 'UNDRAFT'
+                  'FLAGGED', 'UNFLAGGED'
+                  'LARGER N', 'SMALLER N'
+                  'NOT search-key'
+                  'OR search-key1 search-key2'
+
+   -> We can pass multiple IMAP search key strings in the list argument to the search() method. The messages returned are 
+      the ones that match all the search keys.
+   -> If you want to match any of the search keys, use the OR search key. For the NOT and OR search keys, one and two 
+      complete search keys follow the NOT and OR, respectively.
+
+      Eg:
+      imapObj.search(['ALL'])
+      imapObj.search(['SINCE 01-Jan-2015', 'BEFORE 01-Feb-2015', 'UNSEEN'])   etc
+
+
+   # Size Limits:
+   --------------
+
+   Eg:
+   >>> import imaplib
+   >>> imaplib._MAXLINE = 10000000
+
+   Note: We can change this limit from 10,000 bytes to 10,000,000 bytes.
+   -> raise "imaplib.error: got more than 10000 bytes" exception if search matches a large number of email messages.
+
+   -> If we are using gmail account we can use gmail's more sophisticated search engine.
+
+      Eg:
+      >>> UIDs = imapObj.gmail_search('meaning of life')
+      >>> UIDs
+      [42]
+
+
+   # Fetching an Email and Marking It As Read:
+   -------------------------------------------
+
+
 
 
 
