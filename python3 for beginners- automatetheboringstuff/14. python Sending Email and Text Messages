@@ -216,8 +216,128 @@
 
    # Fetching an Email and Marking It As Read:
    -------------------------------------------
+   -> fetch(<list of UIDs>, <list ['BODY[]']>) : Used to fetch Email. 
+      * Returns nested dictionary of messages with UIDs as the keys.
+      * Each message is stored as a dictionary with two keys: 'BODY[]' and 'SEQ'. The 'BODY[]' key maps to the 
+        actual body of the email. The 'SEQ' key is for a sequence number, which has a similar role to the UID. You 
+        can safely ignore it.
+      * list ['BODY[]'], tells fetch() to download all the body content for the emails specified in your UID list.
+
+      Eg:
+      >>> rawMessages = imapObj.fetch(UIDs, ['BODY[]'])
+      >>> import pprint
+      >>> pprint.pprint(rawMessages)
+      {40040: {'BODY[]': 'Delivered-To: my_email_address@gmail.com\r\n'
+                         'Received: by 10.76.71.167 with SMTP id '
+      --snip--
+                         '\r\n'
+                         '------=_Part_6000970_707736290.1404819487066--\r\n',
+               'SEQ': 5430}}
+
+    -> To show emails to be marked as read when you fetch them use "readonly=False".
+       Eg:
+       >>> imapObj.select_folder('INBOX', readonly=False)
 
 
+    # Getting Email Addresses from a Raw Message:
+    ---------------------------------------------
+    -> The pyzmail module parses these raw messages and returns them as PyzMessage objects, which make the 
+       subject, body, “To” field, “From” field, and other sections of the email easily accessible to python.
+
+       Eg:
+       >>> import pyzmail
+       >>> message = pyzmail.PyzMessage.factory(rawMessages[40041]['BODY[]'])
+
+    -> Now get different parts of message
+    
+       Eg:
+       >>> message.get_subject()
+       'Hello!'
+       >>> message.get_addresses('from')
+       [('Edward Snowden', 'esnowden@nsa.gov')]    --> name associated with the email address, and the email 
+       >>> message.get_addresses('to')                 address itself.
+       [(Jane Doe', 'my_email_address@gmail.com')]
+       >>> message.get_addresses('cc')
+       []
+       >>> message.get_addresses('bcc')
+       []
 
 
+    # Getting the Body from a Raw Message:
+    --------------------------------------
+    -> text_part : to get text part of mail.
+    -> html_part : to get html part of mail if body contains html text as well.
+    -> text_part.get_payload() : returns the email’s body as a value of the bytes data type.
+    -> decode()  : Returns string of bytes data type.
+    
+    Eg:
+    >>> message.text_part != None
+    True
+    >>> message.text_part.get_payload().decode(message.text_part.charset)
+    'So long, and thanks for all the fish!\r\n\r\n-Al\r\n'
+    >>> message.html_part != None
+    True
+    >>> message.html_part.get_payload().decode(message.html_part.charset)
+    '<div dir="ltr"><div>So long, and thanks for all the fish!<br><br></div>-Al
+    <br></div>\r\n'
 
+
+    # Deleting Emails:
+    ------------------
+    
+    Eg:
+    >>> imapObj.select_folder('INBOX', readonly=False)
+    >>> UIDs = imapObj.search(['ON 09-Jul-2015'])
+    >>> UIDs
+    [40066]
+    >>> imapObj.delete_messages(UIDs) ----> marks the emails with the \Deleted flag.
+    {40066: ('\\Seen', '\\Deleted')}
+    >>> imapObj.expunge()           ------> permanently delete all emails with the \Deleted flag.
+    ('Success', [(5452, 'EXISTS')])
+    
+    
+    # Disconnecting from the IMAP Server:
+    -------------------------------------
+    Eg:
+    >>> imapObj.logout()
+    
+    Summary:
+    ------------------------------------------------------------------------------------------------
+    >>> import imapclient
+    >>> imapObj = imapclient.IMAPClient('imap.gmail.com', ssl=True)
+    >>> imapObj.login(' my_email_address@gmail.com ', ' MY_SECRET_PASSWORD ')
+    'my_email_address@gmail.com Jane Doe authenticated (Success)'
+    >>> imapObj.select_folder('INBOX', readonly=True)
+    >>> UIDs = imapObj.search(['SINCE 05-Jul-2014'])
+    >>> UIDs
+    [40032, 40033, 40034, 40035, 40036, 40037, 40038, 40039, 40040, 40041]
+    >>> rawMessages = imapObj.fetch([40041], ['BODY[]', 'FLAGS'])
+    >>> import pyzmail
+    >>> message = pyzmail.PyzMessage.factory(rawMessages[40041]['BODY[]'])
+    >>> message.get_subject()
+    'Hello!'
+    >>> message.get_addresses('from')
+    [('Edward Snowden', 'esnowden@nsa.gov')]
+    >>> message.get_addresses('to')
+    [(Jane Doe', 'jdoe@example.com')]
+    >>> message.get_addresses('cc')
+    []
+    >>> message.get_addresses('bcc')
+    []
+    >>> message.text_part != None
+    True
+    >>> message.text_part.get_payload().decode(message.text_part.charset)
+    'Follow the money.\r\n\r\n-Ed\r\n'
+    >>> message.html_part != None
+    True
+    >>> message.html_part.get_payload().decode(message.html_part.charset)
+    '<div dir="ltr"><div>So long, and thanks for all the fish!<br><br></div>-
+    Al<br></div>\r\n'
+    >>> imapObj.logout()
+    ----------------------------------------------------------------------------------------------------------
+    
+    
+# Sending Text Messages with Twilio:
+------------------------------------
+    
+    
