@@ -25,6 +25,10 @@ smtpObj.ehlo()
 smtpObj.starttls()
 
 emailAddr = input('Your Email: ')
+while not validateEmail(emailAddr):
+    print('Invalid email')
+    emailAddr = input('Enter valid Email: ')
+    
 password = getpass.getpass('Password: ')
 
 smtpObj.login(emailAddr, password)
@@ -44,11 +48,15 @@ for name, email in unpaidMembers.items():
 smtpObj.quit()        
     
 
-
-
-
-
-
-
-
-
+def validateEmail(mail):
+    emailRegex = re.compile(r'''(
+     [a-zA-Z0-9._%+-]+      # username
+     @                      # @ symbol
+     [a-zA-Z0-9.-]+         # domain name
+     (\.[a-zA-Z]{2,4})      # dot-something
+     )''', re.VERBOSE)
+    
+    if emailRegex.search(mail):
+        return True
+    else:
+        return False
