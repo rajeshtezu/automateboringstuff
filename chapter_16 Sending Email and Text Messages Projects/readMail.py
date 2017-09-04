@@ -2,12 +2,15 @@
 # read Gmail inbox
 import pyzmail
 import imapclient
-import pprint
+import pprint, getpass, sys
 
 #imaplib._MAXLINE = 10000000
 
-username = 'myEmail@gmail.com'
-password = 'myPassword'
+if len(sys.argv) < 2:
+    sys.exit('Usage: python3 readMail.py <Your Email Username>')
+
+username = sys.argv[1]
+password = getpass.getpass(prompt='Password: ', stream=None)
 
 imapObj = imapclient.IMAPClient('imap.gmail.com', ssl=True)
 imapObj.login(username, password)
