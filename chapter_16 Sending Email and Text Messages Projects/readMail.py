@@ -5,8 +5,8 @@ import pyzmail
 import imapclient
 import pprint
 
-username = 'pypypy137@gmail.com'
-password = 'Nav@ratna90'
+username = 'myMail@gmail.com'
+password = 'MyPassword'
 
 imapObj = imapclient.IMAPClient('imap.gmail.com', ssl=True)
 imapObj.login(username, password)
